@@ -20,7 +20,10 @@ CustomError.prototype = Object.create(Error.prototype);
  * @return {number}              Random number between min and max.
  */
 function generateRandomNumber(args) {
-    args = args || { min: 1, max: 6 };
+    args = args || { };
+
+    args.min = typeof args.min === 'undefined' ? 1 : args.min;
+    args.max = typeof args.max === 'undefined' ? 6 : args.max;
 
     if (args.min > args.max) {
         throw new RangeError('Max must be larger than min');
