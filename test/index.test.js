@@ -45,4 +45,10 @@ describe('The main library', function() {
             expect(function() { orzo.chars({chars: 1}) }).to.throw(TypeError);
         });
     });
+
+    describe('using the uuidv4 feature', function() {
+        it('should return a valid UUIDv4', function() {
+            expect(orzo.uuid()).to.match(/[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}/);
+        });
+    });
 });

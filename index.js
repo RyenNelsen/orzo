@@ -63,6 +63,28 @@ function generateRandomString(args) {
     return output;
 }
 
+/**
+ * Generates a valid UUIDv4.
+ * @return {string} A valid UUIDv4.
+ */
+function generateUUIDv4() {
+    var output = [];
+
+    for (var i = 0; i < 32; i++) {
+        output[i] = generateRandomString({chars: HEX_CHARACTERS, len: 1});
+    }
+
+    output[12] = 4;
+    output[16] = generateRandomString({chars: 'ab89', len: 1});
+
+    output.splice(20, 0, '-');
+    output.splice(16, 0, '-');
+    output.splice(12, 0, '-');
+    output.splice(8, 0, '-');
+
+    return output.join('');
+}
+
 // Constant exports
 exports.NUMBERS = NUMBERS;
 exports.LOWERCASE_CHARACTERS = LOWERCASE_CHARACTERS;
@@ -73,3 +95,4 @@ exports.HEX_CHARACTERS = HEX_CHARACTERS;
 // Function exports
 exports.dice = generateRandomNumber;
 exports.chars = generateRandomString;
+exports.uuid = exports.uuidv4 = generateUUIDv4;
