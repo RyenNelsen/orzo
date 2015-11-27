@@ -26,7 +26,7 @@ function generateRandomNumber(args) {
         throw new RangeError('Max must be larger than min');
     }
 
-    return Math.floor(Math.random() * (args.max - args.min) + args.min);
+    return Math.floor(Math.random() * (args.max - args.min + 1) + args.min);
 }
 
 /**
@@ -54,7 +54,7 @@ function generateRandomString(args) {
     var output = '';
 
     for (var i = 0; i < args.len; i++) {
-        output += args.chars[generateRandomNumber({min: 0, max: args.chars.length})];
+        output += args.chars[generateRandomNumber({min: 0, max: args.chars.length - 1})];
     }
 
     return output;
