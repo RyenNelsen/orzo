@@ -13,6 +13,16 @@ describe('The main library', function() {
                 expect(orzo.dice()).to.be.at.least(1).and.at.most(6);
             }
         });
+        it('should return a number between 4 and 6 if only min is supplied in all 20 rolls', function() {
+            for (var i = 0; i < 20; i++) {
+                expect(orzo.dice({min: 4})).to.be.at.least(4).and.at.most(6);
+            }
+        });
+        it('should return a number between 1 and 4 if only max is supplied in all 20 rolls', function() {
+            for (var i = 0; i < 20; i++) {
+                expect(orzo.dice({max: 4})).to.be.at.least(1).and.at.most(4);
+            }
+        });
         it('should throw an error if max is less than min', function() {
             expect(function() { orzo.dice({min: 6, max: 5}); }).to.throw(RangeError);
         });
