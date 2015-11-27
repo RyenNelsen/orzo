@@ -13,7 +13,7 @@ describe('The main library', function() {
                 expect(orzo.dice()).to.be.at.least(1).and.at.most(6);
             }
         });
-        it('should return an error if max is less than min', function() {
+        it('should throw an error if max is less than min', function() {
             expect(function() { orzo.dice({min: 6, max: 5}); }).to.throw(RangeError);
         });
     });
@@ -28,10 +28,10 @@ describe('The main library', function() {
         it('should return all the same characters if only 1 char is supplied', function() {
             expect(orzo.chars({chars: 'a'})).to.equal('aaaaaaaaaa');
         });
-        it('should return an error if length is less than 1', function() {
+        it('should throw an error if length is less than 1', function() {
             expect(function() { orzo.chars({len: -1}); }).to.throw(RangeError);
         });
-        it('should return an error if the supplied character set is anything but a string', function() {
+        it('should throw an error if the supplied character set is anything but a string', function() {
             expect(function() { orzo.chars({chars: 1}) }).to.throw(TypeError);
         });
     });

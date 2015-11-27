@@ -14,7 +14,7 @@ CustomError.prototype = Object.create(Error.prototype);
 
 /**
  * Generates a random number between 1 and 6 unless different min/max values are supplied.
- * @param  {Object} [args]       Contains the arguments for the random number generateRandomNumber
+ * @param  {Object} [args]       Contains the arguments for the random number generator.
  * @param  {number} [args.min=1] Lowest possible random number (inclusive).
  * @param  {number} [args.max=6] Highest possible random number (inclusive).
  * @return {number}              Random number between min and max.
