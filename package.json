@@ -1,0 +1,36 @@
+{
+  "name": "orzo",
+  "version": "0.1.0",
+  "description": "A library for random events like dice rolls and random strings.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyenNelsen/orzo.git"
+  },
+  "keywords": [
+    "luck",
+    "dice",
+    "uuid",
+    "random",
+    "generator",
+    "generate",
+    "number",
+    "numbers"
+  ],
+  "author": "Ryen Nelsen <ryennelsen@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RyenNelsen/orzo/issues"
+  },
+  "homepage": "https://github.com/RyenNelsen/orzo#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
+  }
+}
