@@ -5,9 +5,9 @@ var SPECIAL_CHARACTERS = '!@#$%^&*()';
 var HEX_CHARACTERS = 'abcdef' + NUMBERS;
 
 function CustomError(name, message) {
-    Error.captureStackTrace(this);
-    this.name = name;
-    this.message = message;
+  Error.captureStackTrace(this);
+  this.name = name;
+  this.message = message;
 }
 
 CustomError.prototype = Object.create(Error.prototype);
@@ -19,17 +19,18 @@ CustomError.prototype = Object.create(Error.prototype);
  * @param  {number} [args.max=6] Highest possible random number (inclusive).
  * @return {number}              Random number between min and max.
  */
-function generateRandomNumber(args) {
-    args = args || { };
+function generateRandomNumber() {
+  var args = arguments.lenth <= 0 || arguments[0] === undefined ? {} : arguments[0];
+  var _args$min = args.min;
+  var min = typeof _args$min === 'undefined' ? 1 : _args$min;
+  var _args$max = args.max;
+  var max = typeof _args$max === 'undefined' ? 6 : _args$max;
 
-    args.min = typeof args.min === 'undefined' ? 1 : args.min;
-    args.max = typeof args.max === 'undefined' ? 6 : args.max;
+  if (min > max) {
+    throw new RangeError('Max must be larger than min');
+  }
 
-    if (args.min > args.max) {
-        throw new RangeError('Max must be larger than min');
-    }
-
-    return Math.floor(Math.random() * (args.max - args.min + 1) + args.min);
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 /**
@@ -39,28 +40,28 @@ function generateRandomNumber(args) {
  * @param  {string} [args.char=a-zA-Z0-9] The character set for the random string.
  * @return {string}                       Random set of characters.
  */
-function generateRandomString(args) {
-    args = args || { };
+function generateRandomString() {
+  var args = arguments.lenth <= 0 || arguments[0] === undefined ? {} : arguments[0];
+  var _args$len = args.len;
+  var len = typeof _args$len === 'undefined' ? 10 : _args$len;
+  var _args$chars = args.chars;
+  var chars = typeof _args$chars === 'undefined' ? NUMBERS + LOWERCASE_CHARACTERS + UPPERCASE_CHARACTERS : _args$chars;
+  var output = '';
 
-    // TODO: Add ability to parse character sets like regex (eg: a-zA-Z)
+  // TODO: Add ability to parse character sets like regex (eg: a-zA-Z)
 
-    args.len = args.len || 10;
-    args.chars = args.chars || NUMBERS + LOWERCASE_CHARACTERS + UPPERCASE_CHARACTERS;
+  if (len < 1) {
+    throw new RangeError('\'len\' must be greater than 0');
+  }
+  if (typeof chars !== 'string') {
+    throw new TypeError('\'chars\' must be a string');
+  }
 
-    if (args.len < 1) {
-        throw new RangeError('\'len\' must be greater than 0');
-    }
-    if (typeof args.chars !== 'string') {
-        throw new TypeError('\'chars\' must be a string');
-    }
+  for (var i = 0; i < len; i++) {
+    output += chars[generateRandomNumber({min: 0, max: chars.length - 1})];
+  }
 
-    var output = '';
-
-    for (var i = 0; i < args.len; i++) {
-        output += args.chars[generateRandomNumber({min: 0, max: args.chars.length - 1})];
-    }
-
-    return output;
+  return output;
 }
 
 /**
@@ -68,21 +69,21 @@ function generateRandomString(args) {
  * @return {string} A valid UUIDv4.
  */
 function generateUUIDv4() {
-    var output = [];
+  var output = [];
 
-    for (var i = 0; i < 32; i++) {
-        output[i] = generateRandomString({chars: HEX_CHARACTERS, len: 1});
-    }
+  for (var i = 0; i < 32; i++) {
+    output[i] = generateRandomString({chars: HEX_CHARACTERS, len: 1});
+  }
 
-    output[12] = 4;
-    output[16] = generateRandomString({chars: 'ab89', len: 1});
+  output[12] = 4;
+  output[16] = generateRandomString({chars: 'ab89', len: 1});
 
-    output.splice(20, 0, '-');
-    output.splice(16, 0, '-');
-    output.splice(12, 0, '-');
-    output.splice(8, 0, '-');
+  output.splice(20, 0, '-');
+  output.splice(16, 0, '-');
+  output.splice(12, 0, '-');
+  output.splice(8, 0, '-');
 
-    return output.join('');
+  return output.join('');
 }
 
 // Constant exports
