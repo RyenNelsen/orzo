@@ -23,6 +23,11 @@ describe('The main library', function() {
         expect(orzo.dice({max: 4})).to.be.at.least(1).and.at.most(4);
       }
     });
+    it('should return a number between -20 and 20 in all 100 rolls', function() {
+      for (var i = 0; i < 100; i++) {
+        expect(orzo.dice({min: -20, max: 20})).to.be.at.least(-20).and.at.most(20);
+      }
+    });
     it('should throw an error if max is less than min', function() {
       expect(function() { orzo.dice({min: 6, max: 5}); }).to.throw(RangeError);
     });
