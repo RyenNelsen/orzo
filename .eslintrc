@@ -2,5 +2,13 @@
     "extends": "airbnb/legacy",
     "env": {
         "node": true
+    },
+    "globals": {
+        "describe": true,
+        "it": true
+    },
+    "rules": {
+        "func-names": 0,
+        "vars-on-top": 0
     }
 }
