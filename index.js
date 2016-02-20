@@ -2,7 +2,7 @@ var NUMBERS = '0123456789';
 var LOWERCASE_CHARACTERS = 'abcdefghijklmnopqrstuvwxyz';
 var UPPERCASE_CHARACTERS = LOWERCASE_CHARACTERS.toUpperCase();
 var SPECIAL_CHARACTERS = '!@#$%^&*()';
-var HEX_CHARACTERS = 'abcdef' + NUMBERS;
+var HEX_CHARACTERS = NUMBERS + 'abcdef';
 
 function CustomError(name, message) {
   Error.captureStackTrace(this);
