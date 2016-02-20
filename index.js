@@ -116,6 +116,37 @@ function customBaseEncode() {
   return output;
 }
 
+/**
+ * Decodes an input from a custom base of characters to base10.
+ * @param  {Object} [args]                Contains the arguments for the decoder.
+ * @param  {number} [args.input]          Input to convert back to base10.
+ * @param  {string} [args.char=a-zA-Z0-9] The character set used to convert the input.
+ * @return {number}                       The converted input to base10.
+ */
+function customBaseDecode() {
+  var args = arguments.lenth <= 0 || arguments[0] === undefined ? {} : arguments[0];
+  var input = args.input;
+  var _args$chars = args.chars;
+  var chars = typeof _args$chars === 'undefined' ? NUMBERS + LOWERCASE_CHARACTERS + UPPERCASE_CHARACTERS : _args$chars;
+  var base = chars.length;
+  var output = 0;
+
+  if (typeof input === 'undefined') {
+    throw new SyntaxError('input is required');
+  } else if (typeof input !== 'string') {
+    throw new TypeError('input must be a string');
+  }
+
+  while (input) {
+    var i = chars.indexOf(input[0]);
+    var pow = input.length - 1;
+    output += i * (Math.pow(base, pow));
+    input = input.substring(1);
+  }
+
+  return output;
+}
+
 // Constant exports
 exports.NUMBERS = NUMBERS;
 exports.LOWERCASE_CHARACTERS = LOWERCASE_CHARACTERS;
@@ -127,3 +158,5 @@ exports.HEX_CHARACTERS = HEX_CHARACTERS;
 exports.dice = generateRandomNumber;
 exports.chars = generateRandomString;
 exports.uuid = exports.uuidv4 = generateUUIDv4;
+exports.encode = customBaseEncode;
+exports.decode = customBaseDecode;

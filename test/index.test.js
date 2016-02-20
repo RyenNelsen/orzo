@@ -71,4 +71,19 @@ describe('The main library', function() {
       expect(function() { orzo.encode({input: '199'}); }).to.throw(TypeError);
     });
   });
+
+  describe('using the decode feature', function() {
+    it('should return the correct base10 number if HEX_CHARACTERS is used in chars', function() {
+      expect(orzo.decode({input: 'c7', chars: orzo.HEX_CHARACTERS})).to.equal(199);
+    });
+    it('should return the correct base62 number if no chars are supplied', function() {
+      expect(orzo.decode({input: '3d'})).to.equal(199);
+    });
+    it('should throw an error if input is not supplied', function() {
+      expect(function() { orzo.decode(); }).to.throw(SyntaxError);
+    });
+    it('should throw an error if input is not a string', function() {
+      expect(function() { orzo.decode({input: 199}); }).to.throw(TypeError);
+    });
+  });
 });

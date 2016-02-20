@@ -74,3 +74,23 @@ Encode `1999` to base62:
 ```js
 orzo.encode({input: 1999}) // wf
 ```
+
+### orzo.decode({args}) ⇒ `number`
+Returns a random set of 10 characters unless a different 'len' is supplied.
+
+#### Parameters
+| Params | Type | Default | Description |
+| ------ | ---- | ------- | ----------- |
+| input | number | | The input to convert back to base10. |
+| [chars] | string | a-zA-Z0-9 | The character set used to convert the input. (Currently only supports string input, not character ranges). |
+
+#### Examples
+Decode `7cf` from base16 to base10:
+```js
+orzo.decode({input: '7cf', chars: '0123456789abcdef'}) // 1999
+```
+
+Decode `wf` from base62 to base10:
+```js
+orzo.decode({input: 'wf'}) // 1999
+```
