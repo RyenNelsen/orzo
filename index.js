@@ -86,6 +86,36 @@ function generateUUIDv4() {
   return output.join('');
 }
 
+/**
+ * Encodes an base10 input to a custom base of characters.
+ * @param  {Object} [args]                Contains the arguments for the encoder.
+ * @param  {number} [args.input]          Input to convert to the different base.
+ * @param  {string} [args.char=a-zA-Z0-9] The character set for the new base.
+ * @return {string}                       The converted input to the new base.
+ */
+function customBaseEncode() {
+  var args = arguments.lenth <= 0 || arguments[0] === undefined ? {} : arguments[0];
+  var input = args.input;
+  var _args$chars = args.chars;
+  var chars = typeof _args$chars === 'undefined' ? NUMBERS + LOWERCASE_CHARACTERS + UPPERCASE_CHARACTERS : _args$chars;
+  var base = chars.length;
+  var output = '';
+
+  if (typeof input === 'undefined') {
+    throw new SyntaxError('input is required');
+  } else if (typeof input !== 'number') {
+    throw new TypeError('input must be a number');
+  }
+
+  while (input) {
+    var remainder = input % base;
+    input = Math.floor(input / base);
+    output = chars[remainder].toString() + output;
+  }
+
+  return output;
+}
+
 // Constant exports
 exports.NUMBERS = NUMBERS;
 exports.LOWERCASE_CHARACTERS = LOWERCASE_CHARACTERS;

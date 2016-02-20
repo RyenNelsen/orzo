@@ -54,3 +54,23 @@ Returns a valid UUIDv4.
 ```js
 orzo.uuid() // 5287a662-0623-4ff4-8228-3a3b371926a3
 ```
+
+### orzo.encode({args}) ⇒ `string`
+Returns a random set of 10 characters unless a different 'len' is supplied.
+
+#### Parameters
+| Params | Type | Default | Description |
+| ------ | ---- | ------- | ----------- |
+| input | string | | The input to convert to the different base. |
+| [chars] | string | a-zA-Z0-9 | The character set for the new base. (Currently only supports string input, not character ranges). |
+
+#### Examples
+Encode `1999` to base16:
+```js
+orzo.encode({input: 1999, chars: '0123456789abcdef'}) // 7cf
+```
+
+Encode `1999` to base62:
+```js
+orzo.encode({input: 1999}) // wf
+```

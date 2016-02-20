@@ -56,4 +56,19 @@ describe('The main library', function() {
       expect(orzo.uuid()).to.match(/[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}/);
     });
   });
+
+  describe('using the encode feature', function() {
+    it('should return the correct base16 number if HEX_CHARACTERS is used in chars', function() {
+      expect(orzo.encode({input: 199, chars: orzo.HEX_CHARACTERS})).to.equal('c7');
+    });
+    it('should return the correct base62 number if no chars are supplied', function() {
+      expect(orzo.encode({input: 199})).to.equal('3d');
+    });
+    it('should throw an error if input is not supplied', function() {
+      expect(function() { orzo.encode(); }).to.throw(SyntaxError);
+    });
+    it('should throw an error if input is not a number', function() {
+      expect(function() { orzo.encode({input: '199'}); }).to.throw(TypeError);
+    });
+  });
 });
