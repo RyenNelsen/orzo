@@ -44,7 +44,7 @@ orzo.chars() // FBnQPprZw3
 
 Generate a random string with only hex characters with a length of 25:
 ```js
-orzo.chars({len: 25, chars: '0123456789abcdef'}) // ff0b28ef67d91e04c1b707169
+orzo.chars({len: 25, chars: orzo.HEX_CHARACTERS}) // ff0b28ef67d91e04c1b707169
 ```
 
 ### orzo.uuid() ⇒ `string`
@@ -67,7 +67,7 @@ Returns a random set of 10 characters unless a different 'len' is supplied.
 #### Examples
 Encode `1999` to base16:
 ```js
-orzo.encode({input: 1999, chars: '0123456789abcdef'}) // 7cf
+orzo.encode({input: 1999, chars: orzo.HEX_CHARACTERS}) // 7cf
 ```
 
 Encode `1999` to base62:
@@ -87,7 +87,7 @@ Returns a random set of 10 characters unless a different 'len' is supplied.
 #### Examples
 Decode `7cf` from base16 to base10:
 ```js
-orzo.decode({input: '7cf', chars: '0123456789abcdef'}) // 1999
+orzo.decode({input: '7cf', chars: orzo.HEX_CHARACTERS}) // 1999
 ```
 
 Decode `wf` from base62 to base10:
