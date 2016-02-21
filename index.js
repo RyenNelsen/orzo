@@ -89,7 +89,7 @@ function generateUUIDv4() {
 /**
  * Encodes an base10 input to a custom base of characters.
  * @param  {Object} [args]                Contains the arguments for the encoder.
- * @param  {number} [args.input]          Input to convert to the different base.
+ * @param  {number} [args.input]          The input to convert to the different base.
  * @param  {string} [args.char=a-zA-Z0-9] The character set for the new base.
  * @return {string}                       The converted input to the new base.
  */
@@ -119,7 +119,7 @@ function customBaseEncode() {
 /**
  * Decodes an input from a custom base of characters to base10.
  * @param  {Object} [args]                Contains the arguments for the decoder.
- * @param  {number} [args.input]          Input to convert back to base10.
+ * @param  {number} [args.input]          The input to convert back to base10.
  * @param  {string} [args.char=a-zA-Z0-9] The character set used to convert the input.
  * @return {number}                       The converted input to base10.
  */
