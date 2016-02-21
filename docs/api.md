@@ -94,3 +94,14 @@ Decode `wf` from base62 to base10:
 ```js
 orzo.decode({input: 'wf'}) // 1999
 ```
+
+### Constants
+Various constants exported from orzo.
+
+| Constant | Type | Value |
+| --- | --- | --- |
+| `orzo.NUMBERS` | String | 0123456789 |
+| `orzo.LOWERCASE_CHARACTERS` | String | abcdefghijklmnopqrstuvwxyz |
+| `orzo.UPPERCASE_CHARACTERS` | String | ABCDEFGHIJKLMNOPQRSTUVWXYZ |
+| `orzo.SPECIAL_CHARACTERS` | String | !@#$%^&*() |
+| `orzo.HEX_CHARACTERS` | String | 0123456789abcdef |
