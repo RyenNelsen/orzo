@@ -123,4 +123,5 @@ To contribute to orzo, clone this repo locally and commit your code on a new bra
 License
 -------
 orzo is licensed under the MIT license.
+
 Copyright &copy; 2015, Ryen Nelsen
