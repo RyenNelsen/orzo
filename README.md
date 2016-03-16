@@ -124,6 +124,3 @@ License
 -------
 orzo is licensed under the MIT license.
 Copyright &copy; 2015, Ryen Nelsen
-
-### API
-To view the current API, please [click here](https://github.com/RyenNelsen/orzo/blob/master/docs/api.md).
