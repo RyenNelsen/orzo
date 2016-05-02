@@ -4,14 +4,6 @@ var UPPERCASE_CHARACTERS = LOWERCASE_CHARACTERS.toUpperCase();
 var SPECIAL_CHARACTERS = '!@#$%^&*()';
 var HEX_CHARACTERS = NUMBERS + 'abcdef';
 
-function CustomError(name, message) {
-  Error.captureStackTrace(this);
-  this.name = name;
-  this.message = message;
-}
-
-CustomError.prototype = Object.create(Error.prototype);
-
 /**
  * Generates a random number between 1 and 6 unless different min/max values are supplied.
  * @param  {Object} [args]       Contains the arguments for the random number generator.
