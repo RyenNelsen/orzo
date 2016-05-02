@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha"
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "chai": "^3.4.1",
     "eslint": "^1.10.2",
     "eslint-config-airbnb": "^1.0.2",
-    "mocha": "^2.3.4"
+    "istanbul": "^0.4.3",
+    "mocha": "^2.4.5"
   }
 }
