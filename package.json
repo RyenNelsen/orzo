@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "test": "istanbul cover ./node_modules/mocha/bin/_mocha"
   },
   "repository": {
@@ -31,6 +32,7 @@
   "homepage": "https://github.com/RyenNelsen/orzo#readme",
   "devDependencies": {
     "chai": "^3.4.1",
+    "coveralls": "^2.11.9",
     "eslint": "^1.10.2",
     "eslint-config-airbnb": "^1.0.2",
     "istanbul": "^0.4.3",
