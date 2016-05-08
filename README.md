@@ -1,6 +1,8 @@
 orzo
 ====
 
+[![Build Status](https://travis-ci.org/RyenNelsen/orzo.svg?branch=master)](https://travis-ci.org/RyenNelsen/orzo) [![Coverage Status](https://coveralls.io/repos/github/RyenNelsen/orzo/badge.svg?branch=master)](https://coveralls.io/github/RyenNelsen/orzo?branch=master)
+
 A library for random events like dice rolls and random strings.
 
 
